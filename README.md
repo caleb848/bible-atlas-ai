@@ -4,7 +4,7 @@
 
 ![Journey Mode on Paul's second missionary journey, stop 7 of 18: Philippi, with a verbatim line from Acts 16:12, the editorial summary and the timeline](docs/screenshots/journey.jpg)
 
-<!-- Add the live link here after deploying. -->
+**Live:** [bible-atlas-ai.netlify.app](https://bible-atlas-ai.netlify.app)
 
 ## Highlights
 

@@ -1,4 +1,4 @@
-/** Site-wide settings. Update `githubUrl` once the repository is published. */
+/** Site-wide settings. */
 export const SITE = {
   name: 'Bible Atlas AI',
   description: 'Explore biblical journeys, places and events through an interactive map of Scripture.',
