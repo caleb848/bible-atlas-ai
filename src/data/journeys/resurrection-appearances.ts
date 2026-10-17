@@ -1,0 +1,91 @@
+import { en } from '../text'
+import type { Journey } from '../types'
+
+export const resurrectionAppearances: Journey = {
+  id: 'resurrection-appearances',
+  type: 'collection',
+  eraId: 'life-of-jesus',
+  title: en('Appearances of the Risen Jesus'),
+  shortTitle: en('Resurrection appearances'),
+  subtitle: en('The tomb, Jerusalem, Galilee and the ascension, account by account'),
+  summary: en(
+    'The Gospels and Acts report that Jesus was seen alive after his death: by women who had come to the tomb, by disciples in and near Jerusalem and in Galilee, and finally as he was taken up. Each entry follows a single account.',
+  ),
+  passages: ['MAT 28:1-20', 'LUK 24:1-53', 'JHN 20:11-29', 'JHN 21:1-14', 'ACT 1:9-12'],
+  orderingNote: en(
+    'Grouped by setting, not merged into one sequence. Each entry follows a single account, and the Gospels and Acts differ in detail: who came to the tomb and what they saw, where and to whom Jesus appeared, and where he was taken up.',
+  ),
+  sections: [
+    { id: 'tomb', title: en('At the tomb'), description: en('Matthew 28, Luke 24 and John 20') },
+    { id: 'jerusalem', title: en('In and near Jerusalem'), description: en('Luke 24 and John 20') },
+    { id: 'galilee', title: en('In Galilee'), description: en('John 21 and Matthew 28') },
+    { id: 'ascension', title: en('The ascension'), description: en('Luke 24 and Acts 1') },
+  ],
+  stops: [
+    {
+      sectionId: 'tomb',
+      placeId: 'golgotha',
+      eventIds: ['empty-tomb', 'jesus-meets-the-women'],
+      passage: 'MAT 28:1-10',
+      note: en('Matthew’s account: an angel at the tomb, then Jesus meets the women on their way to the disciples.'),
+      quote: { ref: 'MAT 28:6', text: 'He is not here, for he has risen, just like he said.' },
+    },
+    {
+      sectionId: 'tomb',
+      placeId: 'golgotha',
+      eventIds: ['women-report-the-empty-tomb'],
+      passage: 'LUK 24:1-12',
+      note: en('Luke’s account: two men in dazzling clothing, and the women’s report to the apostles.'),
+    },
+    {
+      sectionId: 'tomb',
+      placeId: 'golgotha',
+      eventIds: ['appearance-to-mary-magdalene'],
+      passage: 'JHN 20:11-18',
+      note: en('John’s account: Jesus appears to Mary Magdalene at the tomb.'),
+      quote: { ref: 'JHN 20:18', text: 'Mary Magdalene came and told the disciples that she had seen the Lord' },
+    },
+    { sectionId: 'jerusalem', placeId: 'emmaus', eventIds: ['road-to-emmaus'], passage: 'LUK 24:13-35' },
+    {
+      sectionId: 'jerusalem',
+      placeId: 'jerusalem',
+      eventIds: ['risen-jesus-among-the-disciples'],
+      passage: 'LUK 24:36-49',
+      quote: { ref: 'LUK 24:36', text: 'Jesus himself stood among them' },
+    },
+    {
+      sectionId: 'jerusalem',
+      placeId: 'jerusalem',
+      eventIds: ['thomas-sees-the-risen-jesus'],
+      passage: 'JHN 20:24-29',
+      note: en('John does not name the city; the disciples were behind locked doors.'),
+      quote: { ref: 'JHN 20:28', text: 'My Lord and my God!' },
+    },
+    {
+      sectionId: 'galilee',
+      placeId: 'sea-of-galilee',
+      eventIds: ['breakfast-by-the-sea-of-tiberias'],
+      passage: 'JHN 21:1-14',
+      quote: { ref: 'JHN 21:7', text: 'It’s the Lord!' },
+    },
+    { sectionId: 'galilee', placeId: 'galilee', eventIds: ['mountain-in-galilee'], passage: 'MAT 28:16-20' },
+    {
+      sectionId: 'ascension',
+      placeId: 'bethany',
+      eventIds: ['ascension-in-luke'],
+      passage: 'LUK 24:50-53',
+      note: en('Luke’s Gospel: as far as Bethany.'),
+      quote: { ref: 'LUK 24:51', text: 'he withdrew from them and was carried up into heaven' },
+    },
+    {
+      sectionId: 'ascension',
+      placeId: 'mount-of-olives',
+      eventIds: ['ascension'],
+      passage: 'ACT 1:9-12',
+      note: en('Acts: the mountain called Olivet.'),
+      quote: { ref: 'ACT 1:9', text: 'he was taken up, and a cloud received him out of their sight' },
+    },
+  ],
+  tags: ['resurrection', 'appearances', 'risen', 'easter', 'empty tomb', 'ascension'],
+  featured: false,
+}

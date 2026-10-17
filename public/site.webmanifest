@@ -1,0 +1,32 @@
+{
+  "name": "Bible Atlas AI",
+  "short_name": "Bible Atlas",
+  "description": "Explore biblical journeys, places and events through an interactive map of Scripture.",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#f2eee7",
+  "theme_color": "#f2eee7",
+  "icons": [
+    {
+      "src": "/favicon.svg",
+      "type": "image/svg+xml",
+      "sizes": "any"
+    },
+    {
+      "src": "/icon-192.png",
+      "type": "image/png",
+      "sizes": "192x192"
+    },
+    {
+      "src": "/icon-512.png",
+      "type": "image/png",
+      "sizes": "512x512"
+    },
+    {
+      "src": "/icon-maskable-512.png",
+      "type": "image/png",
+      "sizes": "512x512",
+      "purpose": "maskable"
+    }
+  ]
+}

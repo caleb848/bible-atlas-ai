@@ -1,0 +1,85 @@
+import { en } from '../text'
+import type { Journey } from '../types'
+
+export const ministryOfJesus: Journey = {
+  id: 'ministry-of-jesus',
+  type: 'collection',
+  eraId: 'life-of-jesus',
+  title: en('Key Places in the Ministry of Jesus'),
+  shortTitle: en('Ministry of Jesus'),
+  subtitle: en('Galilee, Samaria, Judea and beyond'),
+  summary: en(
+    'Jesus’ public ministry centered on the towns around the Sea of Galilee, with journeys north toward Tyre and Caesarea Philippi, through Samaria, and south to Jericho, Bethany and Jerusalem.',
+  ),
+  passages: ['MRK 1:9-11', 'MRK 1:16-28', 'JHN 2:1-11', 'MAT 16:13-20', 'JHN 11:1-44'],
+  orderingNote: en(
+    'Grouped by region. The Gospels do not give a complete itinerary of the ministry, so these places are not joined by a route.',
+  ),
+  sections: [
+    { id: 'galilee', title: en('Galilee'), description: en('The towns around the Sea of Galilee') },
+    { id: 'beyond', title: en('Beyond Galilee'), description: en('Across the lake, Tyre and the Decapolis, Caesarea Philippi and Samaria') },
+    { id: 'judea', title: en('The Jordan valley, Judea and Jerusalem') },
+  ],
+  stops: [
+    { sectionId: 'galilee', placeId: 'nazareth', eventIds: ['rejected-at-nazareth'], passage: 'LUK 4:16-30' },
+    { sectionId: 'galilee', placeId: 'cana', eventIds: ['water-into-wine', 'noblemans-son'], passage: 'JHN 2:1-11' },
+    {
+      sectionId: 'galilee',
+      placeId: 'capernaum',
+      eventIds: ['teaching-in-capernaum', 'paralytic-through-the-roof', 'centurions-servant'],
+      passage: 'MRK 1:21-28',
+    },
+    {
+      sectionId: 'galilee',
+      placeId: 'sea-of-galilee',
+      eventIds: ['calling-the-fishermen', 'calming-the-storm', 'walking-on-water'],
+      passage: 'MRK 1:16-20',
+    },
+    {
+      sectionId: 'galilee',
+      placeId: 'gennesaret',
+      eventIds: ['healings-at-gennesaret'],
+      passage: 'MRK 6:53-56',
+      quote: { ref: 'MRK 6:53', text: 'they came to land at Gennesaret and moored to the shore' },
+    },
+    {
+      sectionId: 'galilee',
+      placeId: 'bethsaida',
+      eventIds: ['feeding-the-five-thousand', 'blind-man-at-bethsaida'],
+      passage: 'MRK 8:22-26',
+    },
+    { sectionId: 'galilee', placeId: 'chorazin', eventIds: ['woes-on-the-towns'], passage: 'MAT 11:20-24' },
+    { sectionId: 'galilee', placeId: 'nain', eventIds: ['widows-son-at-nain'], passage: 'LUK 7:11-17' },
+    {
+      sectionId: 'beyond',
+      placeId: 'country-of-the-gadarenes',
+      eventIds: ['healing-among-the-gadarenes'],
+      passage: 'MRK 5:1-20',
+      quote: { ref: 'MRK 5:1', text: 'They came to the other side of the sea, into the country of the Gadarenes.' },
+    },
+    { sectionId: 'beyond', placeId: 'tyre', eventIds: ['a-mothers-faith'], passage: 'MRK 7:24-30' },
+    {
+      sectionId: 'beyond',
+      placeId: 'decapolis',
+      eventIds: ['deaf-man-in-decapolis'],
+      passage: 'MRK 7:31-37',
+      quote: { ref: 'MRK 7:31', text: 'came to the sea of Galilee through the middle of the region of Decapolis' },
+    },
+    { sectionId: 'beyond', placeId: 'caesarea-philippi', eventIds: ['peters-confession'], passage: 'MAT 16:13-20' },
+    { sectionId: 'beyond', placeId: 'sychar', eventIds: ['woman-at-the-well'], passage: 'JHN 4:4-42' },
+    { sectionId: 'judea', placeId: 'jordan-river', eventIds: ['baptism-of-jesus'], passage: 'MRK 1:9-11' },
+    { sectionId: 'judea', placeId: 'jericho', eventIds: ['blind-bartimaeus', 'zacchaeus'], passage: 'LUK 19:1-10' },
+    { sectionId: 'judea', placeId: 'bethany', eventIds: ['lazarus-raised'], passage: 'JHN 11:1-44' },
+    {
+      sectionId: 'judea',
+      placeId: 'ephraim',
+      eventIds: ['withdrawal-to-ephraim'],
+      passage: 'JHN 11:53-54',
+      quote: { ref: 'JHN 11:54', text: 'departed from there into the country near the wilderness, to a city called Ephraim' },
+    },
+    { sectionId: 'judea', placeId: 'pool-of-bethesda', eventIds: ['healing-at-bethesda'], passage: 'JHN 5:1-9' },
+    { sectionId: 'judea', placeId: 'pool-of-siloam', eventIds: ['healing-at-siloam'], passage: 'JHN 9:1-11' },
+  ],
+  tags: ['jesus', 'ministry', 'life of jesus', 'jesus locations', 'galilee', 'miracles', 'teaching', 'gospels'],
+  featured: true,
+}

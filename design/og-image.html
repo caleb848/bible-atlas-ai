@@ -1,0 +1,117 @@
+<!doctype html>
+<!--
+  Social share card (1200×630) for Bible Atlas AI. Edit freely, then run `npm run og:image`
+  with the app running to capture a fresh map (og-map.png) and render public/og-image.png.
+-->
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <style>
+      @font-face {
+        font-family: 'Newsreader';
+        src: url('../node_modules/@fontsource-variable/newsreader/files/newsreader-latin-opsz-normal.woff2') format('woff2-variations');
+        font-weight: 200 800;
+      }
+      @font-face {
+        font-family: 'Inter';
+        src: url('../node_modules/@fontsource-variable/inter/files/inter-latin-wght-normal.woff2') format('woff2-variations');
+        font-weight: 100 900;
+      }
+      html,
+      body {
+        margin: 0;
+        width: 1200px;
+        height: 630px;
+        background: #f2eee7;
+      }
+      .card {
+        position: relative;
+        width: 1200px;
+        height: 630px;
+        overflow: hidden;
+        background: #efebe4 url('og-map.png') right center / cover no-repeat;
+        font-family: 'Inter', sans-serif;
+        color: #18202d;
+      }
+      .shade {
+        position: absolute;
+        inset: 0;
+        background: linear-gradient(90deg, #f6f3ee 0%, rgb(246 243 238 / 0.96) 36%, rgb(246 243 238 / 0.55) 54%, rgb(246 243 238 / 0) 72%);
+      }
+      .content {
+        position: absolute;
+        left: 72px;
+        top: 66px;
+        bottom: 64px;
+        width: 590px;
+        display: flex;
+        flex-direction: column;
+      }
+      .brand {
+        display: flex;
+        align-items: center;
+        gap: 14px;
+        font-family: 'Newsreader', serif;
+        font-size: 30px;
+        font-weight: 600;
+        color: #10151f;
+      }
+      .brand b {
+        font-weight: 600;
+        color: #2448b0;
+      }
+      .eyebrow {
+        margin-top: 64px;
+        font-size: 15px;
+        font-weight: 600;
+        letter-spacing: 0.18em;
+        text-transform: uppercase;
+        color: #2448b0;
+      }
+      h1 {
+        margin: 16px 0 0;
+        font-family: 'Newsreader', serif;
+        font-weight: 500;
+        font-size: 72px;
+        line-height: 1;
+        letter-spacing: -0.025em;
+        color: #10151f;
+      }
+      p {
+        margin: 24px 0 0;
+        font-size: 22px;
+        line-height: 1.5;
+        color: #4a5466;
+      }
+      .tags {
+        margin-top: auto;
+        display: flex;
+        gap: 10px;
+        font-size: 15px;
+        font-weight: 500;
+        color: #374152;
+      }
+      .tags span {
+        padding: 7px 14px;
+        border-radius: 999px;
+        background: #fcfbf8;
+        border: 1px solid #e2dcd1;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="card">
+      <div class="shade"></div>
+      <div class="content">
+        <div class="brand">
+          <img src="../public/favicon.svg" width="44" height="44" alt="" />
+          <span>Bible Atlas <b>AI</b></span>
+        </div>
+        <div class="eyebrow">An interactive atlas of Scripture</div>
+        <h1>Explore Scripture geographically.</h1>
+        <p>Follow the journeys of Acts, discover the places of the Gospels, and read the passages behind them.</p>
+        <div class="tags"><span>Interactive map</span><span>World English Bible</span><span>On-device AI search</span></div>
+      </div>
+    </div>
+  </body>
+</html>

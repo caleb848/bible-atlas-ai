@@ -1,0 +1,351 @@
+@import 'tailwindcss';
+
+/* ---------------------------------------------------------------------------------------------
+   Light atlas design system. Warm paper and stone for surfaces, cool slate ink for text, cobalt
+   for routes and actions, Aegean blue for the sea. Text colours are chosen for at least 4.5:1
+   contrast on paper (ink-500 and darker); lighter inks are decorative only. */
+
+@theme {
+  /* The desktop layout (floating panels) starts at 900px; below it the panel is a bottom sheet. */
+  --breakpoint-md: 56.25rem;
+
+  --font-sans: 'Inter Variable', ui-sans-serif, system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif;
+  --font-serif: 'Newsreader Variable', 'Iowan Old Style', 'Palatino Linotype', Georgia, serif;
+
+  /* Paper and stone: warm, quiet neutrals */
+  --color-paper: #fcfbf8;
+  --color-stone-50: #f8f6f1;
+  --color-stone-100: #f2eee7;
+  --color-stone-150: #ebe6dd;
+  --color-stone-200: #e2dcd1;
+  --color-stone-300: #cfc7b9;
+  --color-stone-400: #aba293;
+  --color-stone-500: #857d70;
+
+  /* Ink: text, from headings (900) to the lightest readable metadata (500) */
+  --color-ink-950: #10151f;
+  --color-ink-900: #18202d;
+  --color-ink-800: #252e3d;
+  --color-ink-700: #374152;
+  --color-ink-600: #4a5466;
+  --color-ink-500: #5f6979;
+  --color-ink-400: #8b93a1;
+  --color-ink-300: #b4bac4;
+
+  /* Cobalt: journey routes, links and primary actions */
+  --color-cobalt-50: #eef2fb;
+  --color-cobalt-100: #dde5f8;
+  --color-cobalt-200: #bccbf0;
+  --color-cobalt-300: #8ea8e3;
+  --color-cobalt-400: #5c7fd4;
+  --color-cobalt-500: #3a61c6;
+  --color-cobalt-600: #2448b0;
+  --color-cobalt-700: #1d3b93;
+  --color-cobalt-800: #182f74;
+  --color-cobalt-900: #13245a;
+
+  /* Sea, matching the basemap water */
+  --color-sea-100: #e3ebf0;
+  --color-sea-200: #cbdae3;
+  --color-sea-300: #afc6d3;
+  --color-sea-600: #4f7189;
+
+  /* Vellum: the warm page tone reserved for Scripture, so quotations never look like summaries */
+  --color-vellum-50: #faf6ee;
+  --color-vellum-100: #f6f0e3;
+  --color-vellum-200: #efe6d3;
+  --color-vellum-300: #e4d8bf;
+  --color-vellum-500: #c4a265;
+  --color-vellum-700: #85663a;
+  --color-vellum-800: #6f5228;
+
+  /* Terracotta: a restrained warm accent */
+  --color-terracotta-50: #fbf0ea;
+  --color-terracotta-100: #f4dccf;
+  --color-terracotta-500: #b45a35;
+  --color-terracotta-700: #8a4024;
+
+  /* Location certainty (each passes 4.5:1 on paper and on its own tint) */
+  --color-identified: #2e6a4e;
+  --color-probable: #2d5b8a;
+  --color-traditional: #8a5418;
+  --color-debated: #9b3a3a;
+  --color-approximate: #545c6b;
+
+  --radius-card: 20px;
+  --shadow-card: 0 1px 2px rgb(24 32 45 / 0.06), 0 14px 36px -14px rgb(24 32 45 / 0.28);
+  --shadow-float: 0 1px 2px rgb(24 32 45 / 0.08), 0 8px 22px -10px rgb(24 32 45 / 0.3);
+  --shadow-pop: 0 2px 6px rgb(24 32 45 / 0.08), 0 28px 60px -20px rgb(24 32 45 / 0.38);
+
+  --ease-out-expo: cubic-bezier(0.16, 1, 0.3, 1);
+  --ease-in-out-quart: cubic-bezier(0.76, 0, 0.24, 1);
+  --animate-fade-up: fade-up 0.6s var(--ease-out-expo) both;
+  --animate-fade-in: fade-in 0.4s ease-out both;
+  --animate-rise: rise 0.7s var(--ease-out-expo) both;
+
+  @keyframes fade-up {
+    from {
+      opacity: 0;
+      transform: translateY(10px);
+    }
+    to {
+      opacity: 1;
+      transform: none;
+    }
+  }
+  @keyframes fade-in {
+    from {
+      opacity: 0;
+    }
+    to {
+      opacity: 1;
+    }
+  }
+  @keyframes rise {
+    from {
+      opacity: 0;
+      transform: translateY(18px);
+      filter: blur(2px);
+    }
+    to {
+      opacity: 1;
+      transform: none;
+      filter: none;
+    }
+  }
+}
+
+@layer base {
+  html,
+  body,
+  #root {
+    height: 100%;
+  }
+
+  html {
+    background: var(--color-stone-100);
+    color-scheme: light;
+    -webkit-text-size-adjust: 100%;
+  }
+
+  body {
+    margin: 0;
+    overflow: hidden;
+    background: var(--color-stone-100);
+    color: var(--color-ink-900);
+    font-family: var(--font-sans);
+    font-feature-settings: 'cv11', 'ss01';
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    text-rendering: optimizeLegibility;
+  }
+
+  /* Gurmukhi needs its own typeface; loaded only when Punjabi content is shown. */
+  :lang(pa) {
+    font-family: 'Noto Sans Gurmukhi', 'Mukta Mahee', var(--font-sans);
+  }
+
+  ::selection {
+    background: var(--color-cobalt-100);
+    color: var(--color-ink-950);
+  }
+
+  :focus-visible {
+    outline: 2px solid var(--color-cobalt-600);
+    outline-offset: 2px;
+    border-radius: 6px;
+  }
+
+  button {
+    cursor: pointer;
+  }
+
+  button:disabled {
+    cursor: default;
+  }
+
+  dialog::backdrop {
+    background: rgb(16 21 31 / 0.42);
+    backdrop-filter: blur(4px);
+  }
+}
+
+/* Small uppercase label above a heading or value. */
+@utility eyebrow {
+  font-size: 0.6875rem;
+  line-height: 1rem;
+  font-weight: 600;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--color-ink-500);
+}
+
+/* The editorial serif, for titles, place names and Scripture. */
+@utility font-display {
+  font-family: var(--font-serif);
+  font-optical-sizing: auto;
+  letter-spacing: -0.012em;
+}
+
+@utility scrollbar-quiet {
+  scrollbar-width: thin;
+  scrollbar-color: var(--color-stone-300) transparent;
+}
+
+/* Floating paper surfaces over the map. Opaque enough to read without the blur; write only the
+   standard property: a hand-written -webkit- copy after it makes the minifier drop this one. */
+@utility surface {
+  background: color-mix(in oklab, var(--color-paper) 94%, transparent);
+  backdrop-filter: blur(16px) saturate(150%);
+  box-shadow: var(--shadow-card);
+  border: 1px solid rgb(226 220 209 / 0.85);
+}
+
+/*
+ * The page as first delivered (server-rendered) is shown at once, without entrance animations,
+ * so its headline is visible from the first frame; the animations return as soon as the reader
+ * interacts (see main.tsx).
+ */
+.first-paint [class*='animate-'] {
+  animation: none !important;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+/* ---------------------------------------------------------------------------------------------
+   Map markers. Markers are DOM elements positioned by MapLibre; label placement is managed by
+   the collision pass in AtlasMap (see labelLayout.ts), which sets data-label on the marker root.
+   The 4px gap between marker and label matches GAP in labelLayout.ts. */
+
+.atlas-marker {
+  position: relative;
+  width: 0;
+  height: 0;
+}
+
+.atlas-marker__label {
+  position: absolute;
+  top: 50%;
+  left: calc(100% + 4px);
+  transform: translateY(-50%);
+  white-space: nowrap;
+  pointer-events: none;
+  transition: opacity 0.2s ease;
+  /* A paper halo keeps labels legible over coastlines, roads and routes. */
+  text-shadow:
+    0 0 1px var(--color-paper),
+    0 0 2px var(--color-paper),
+    0 0 4px var(--color-paper),
+    0 0 8px rgb(252 251 248 / 0.9);
+}
+
+.atlas-marker[data-label='left'] .atlas-marker__label {
+  left: auto;
+  right: calc(100% + 4px);
+  text-align: right;
+}
+
+.atlas-marker[data-label='top'] .atlas-marker__label,
+.atlas-marker[data-label='bottom'] .atlas-marker__label {
+  left: 50%;
+  transform: translateX(-50%);
+  text-align: center;
+}
+
+.atlas-marker[data-label='top'] .atlas-marker__label {
+  top: auto;
+  bottom: calc(100% + 4px);
+}
+
+.atlas-marker[data-label='bottom'] .atlas-marker__label {
+  top: calc(100% + 4px);
+}
+
+.atlas-marker[data-label='hidden'] .atlas-marker__label {
+  opacity: 0;
+}
+
+.atlas-marker[data-revealed='false'] {
+  opacity: 0;
+  transform: scale(0.6);
+}
+
+.atlas-marker[data-revealed='true'] {
+  opacity: 1;
+  transform: none;
+  transition:
+    opacity 0.35s ease-out,
+    transform 0.5s var(--ease-out-expo);
+}
+
+/* Crowded markers at low zoom shrink to dots; zooming in restores them. */
+.atlas-marker[data-compact='true'] button {
+  scale: 0.42;
+}
+
+.atlas-marker[data-compact='true'] button > span {
+  opacity: 0;
+}
+
+/* A place visited more than once shrinks to a single dot too: its first disc, without a number. */
+.atlas-marker[data-compact='true'] button > .atlas-marker__visit:first-child {
+  opacity: 1;
+  color: transparent;
+}
+
+.atlas-marker[data-compact='true'] .atlas-marker__visit ~ .atlas-marker__visit {
+  display: none;
+}
+
+/* Marker highlighted from the timeline (hover or focus there); of a place visited more than once,
+   only the visit pointed at. */
+.atlas-marker[data-hovered='true'] button:not(.atlas-marker__visits),
+.atlas-marker__visit[data-hovered] {
+  scale: 1.18;
+  box-shadow: 0 0 0 5px rgb(36 72 176 / 0.16);
+}
+
+/* MapLibre's attribution, restyled as a quiet caption. */
+.maplibregl-ctrl-attrib {
+  background: color-mix(in oklab, var(--color-paper) 82%, transparent) !important;
+  color: var(--color-ink-500) !important;
+  font: 10.5px/1.4 var(--font-sans) !important;
+  border-radius: 8px 0 0 0 !important;
+}
+
+.maplibregl-ctrl-attrib a {
+  color: var(--color-ink-600) !important;
+}
+
+.maplibregl-ctrl-attrib.maplibregl-compact {
+  border-radius: 12px !important;
+  margin: 0 10px 10px 0 !important;
+}
+
+/* Phones: the map runs under the bottom sheet, so its attribution sits just above the sheet. */
+@media (max-width: 899px) {
+  .atlas-map .maplibregl-ctrl-bottom-right {
+    right: auto;
+    left: 0;
+    bottom: var(--map-inset-bottom, 0px);
+    transition: bottom 0.3s ease;
+  }
+
+  .atlas-map .maplibregl-ctrl-attrib.maplibregl-compact {
+    margin: 0 0 8px 10px !important;
+  }
+}
+
+.maplibregl-canvas:focus-visible {
+  outline: 2px solid var(--color-cobalt-600);
+  outline-offset: -2px;
+}

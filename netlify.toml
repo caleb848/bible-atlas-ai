@@ -1,0 +1,33 @@
+# Netlify: static build, no server functions and no environment variables required.
+[build]
+  command = "npm run build"
+  publish = "dist"
+
+[build.environment]
+  NODE_VERSION = "22"
+
+# Deep links (/journey/…, /place/…) have pre-rendered pages; anything else falls back to the
+# app shell, which shows its own "not found" view. Existing files always take precedence.
+[[redirects]]
+  from = "/*"
+  to = "/index.html"
+  status = 200
+
+[[headers]]
+  for = "/*"
+  [headers.values]
+    X-Content-Type-Options = "nosniff"
+    Referrer-Policy = "strict-origin-when-cross-origin"
+    Permissions-Policy = "camera=(), microphone=(), geolocation=(), interest-cohort=()"
+    X-Frame-Options = "SAMEORIGIN"
+
+# Hashed build assets never change, so browsers may cache them indefinitely.
+[[headers]]
+  for = "/assets/*"
+  [headers.values]
+    Cache-Control = "public, max-age=31536000, immutable"
+
+[[headers]]
+  for = "/search/*"
+  [headers.values]
+    Cache-Control = "public, max-age=86400"
